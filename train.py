@@ -7,6 +7,9 @@ import joblib
 import mlflow
 import mlflow.sklearn
 
+import dagshub
+dagshub.init(repo_owner='pablogarciaamolina', repo_name='mlops-practica-icai', mlflow=True)
+
 # Cargar el conjunto de datos
 iris = datasets.load_iris()
 X = iris.data
