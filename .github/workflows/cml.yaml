@@ -21,10 +21,10 @@ jobs:
       - name: Restore DVC Cache
         uses: actions/cache@v3
         with:
-        path: ~/.cache/dvc
-        key: dvc-cache-${{ hashFiles('dvc.yaml', 'dvc.lock') }}
-        restore-keys: |
-          dvc-cache-
+          path: ~/.cache/dvc
+          key: dvc-cache-${{ hashFiles('dvc.yaml', 'dvc.lock') }}
+          restore-keys: |
+            dvc-cache-
       - name: DVC Pull
         env:
           DAGSHUB_API_KEY: ${{ secrets.DAGSHUB_API_KEY }}
