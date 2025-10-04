@@ -8,3 +8,40 @@ stages:
       md5: 4d301abed5efe50eccda350cde38e0eb
       size: 2777
       isexec: true
+  train:
+    cmd: python train.py --n_estimators 175
+    deps:
+    - path: data/iris_dataset.csv
+      hash: md5
+      md5: 4d301abed5efe50eccda350cde38e0eb
+      size: 2777
+      isexec: true
+    - path: requirements.txt
+      hash: md5
+      md5: 5a2c689ceb20caccaf83cbe9228508fe
+      size: 94
+      isexec: true
+    - path: train.py
+      hash: md5
+      md5: 94efc1b112ddb7894aac3ae0795dd529
+      size: 2944
+      isexec: true
+    params:
+      params.yaml:
+        train.n_estimators: 175
+    outs:
+    - path: mlflow_metrics.json
+      hash: md5
+      md5: 9a0379eaa11dd7b9e9995a62a5f21656
+      size: 17
+      isexec: true
+    - path: model.pkl
+      hash: md5
+      md5: 6512ae9b32af9b2727c128de25368205
+      size: 325649
+      isexec: true
+    - path: results/confusion_matrix.png
+      hash: md5
+      md5: ba0e9ae7fccf719aef6eca85eb6d35fa
+      size: 20691
+      isexec: true
