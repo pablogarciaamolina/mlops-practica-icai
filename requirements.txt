@@ -6,3 +6,4 @@ pandas==2.3.2
 dvc==3.63.0
 mlflow==2.22.2
 streamlit
+seaborn==0.13.2
