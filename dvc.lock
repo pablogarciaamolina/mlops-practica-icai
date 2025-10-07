@@ -9,7 +9,7 @@ stages:
       size: 2794
       isexec: true
   train:
-    cmd: python src/train.py --n_estimators 250
+    cmd: python src/train.py --n_estimators 260
     deps:
     - path: data/iris_dataset.csv
       hash: md5
@@ -28,7 +28,7 @@ stages:
       isexec: true
     params:
       params.yaml:
-        train.n_estimators: 250
+        train.n_estimators: 260
     outs:
     - path: results/confusion_matrix.png
       hash: md5
@@ -42,6 +42,6 @@ stages:
       isexec: true
     - path: results/model.pkl
       hash: md5
-      md5: 3504c71450af1c7a93547816b654ab40
-      size: 443633
+      md5: a27a71f9bb58fbbf9275ac8bb569ed4a
+      size: 460561
       isexec: true
