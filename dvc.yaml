@@ -10,9 +10,9 @@ stages:
       - requirements.txt
       - data/iris_dataset.csv
     outs:
-      - model.pkl
+      - results/model.pkl
       - results/confusion_matrix.png
     metrics:
-      - mlflow_metrics.json
+      - results/mlflow_metrics.json
     params:
       - train.n_estimators

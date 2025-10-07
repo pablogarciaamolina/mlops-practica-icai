@@ -44,7 +44,7 @@ def train_model(n_estimators):
         accuracy = accuracy_score(y_test, y_pred)
         
         # Guardar el modelo entrenado en un archivo .pkl
-        joblib.dump(model, 'model.pkl')
+        joblib.dump(model, 'results/model.pkl')
         
         # Registrar el modelo con MLflow
         mlflow.sklearn.log_model(model, "random-forest-model")
@@ -70,7 +70,7 @@ def train_model(n_estimators):
         metrics = {
             "accuracy": accuracy
         }
-        with open("mlflow_metrics.json", "w") as f:
+        with open("results/mlflow_metrics.json", "w") as f:
             json.dump(metrics, f)
 
 if __name__ == "__main__":
