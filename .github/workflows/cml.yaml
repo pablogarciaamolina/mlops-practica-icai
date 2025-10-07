@@ -53,9 +53,9 @@ jobs:
           password: ${{secrets.DOCKER_TOKEN}}
       - name: Build mlops_api image and push
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mlops_api -f app/Dockerfile .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/mlops_api
+          docker build -t ${{ secrets.DOCKER_USER }}/mlops_api -f app/Dockerfile .
+          docker push ${{ secrets.DOCKER_USER }}/mlops_api
       - name: Build mlops_web image and push
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mlops_web -f app/Dockerfile.web .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/mlops_web
+          docker build -t ${{ secrets.DOCKER_USER }}/mlops_web -f app/Dockerfile.web .
+          docker push ${{ secrets.DOCKER_USER }}/mlops_web
