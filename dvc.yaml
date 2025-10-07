@@ -4,9 +4,9 @@ stages:
     deps:
       - data/iris_dataset.csv
   train:
-    cmd: python train.py --n_estimators ${train.n_estimators}
+    cmd: python src/train.py --n_estimators ${train.n_estimators}
     deps:
-      - train.py
+      - src/train.py
       - requirements.txt
       - data/iris_dataset.csv
     outs:

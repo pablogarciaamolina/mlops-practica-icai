@@ -9,7 +9,7 @@ stages:
       size: 2794
       isexec: true
   train:
-    cmd: python train.py --n_estimators 250
+    cmd: python src/train.py --n_estimators 250
     deps:
     - path: data/iris_dataset.csv
       hash: md5
@@ -21,7 +21,7 @@ stages:
       md5: 4c8c3eec065f6b353f60b3b869d99127
       size: 145
       isexec: true
-    - path: train.py
+    - path: src/train.py
       hash: md5
       md5: 55315fe48463c1a02043eaa8b4ee6faa
       size: 2960
