@@ -101,7 +101,7 @@ jobs:
         run: gcloud auth configure-docker
       - name: Build and Push Docker Image
         run: |
-          docker build -t gcr.io/${{ vars.GCP_PROJECT_ID}}/mlops-api:latest .
+          docker build -t gcr.io/${{ vars.GCP_PROJECT_ID}}/mlops-api:latest -f app/Dockerfile .
           docker push gcr.io/${{ vars.GCP_PROJECT_ID}}/mlops-api:latest
       - name: Deploy to GKE
         run: |
