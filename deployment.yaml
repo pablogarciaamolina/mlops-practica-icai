@@ -14,8 +14,8 @@ spec:
       labels:
         app: mlops-api
     spec:
-    containers:
-    - name: mlops-api
-      image: gcr.io/proyecto-gke-476107/mlops-api:latest # <--- Reemplaza con la ruta de tu imagen
-      ports:
-      - containerPort: 5000
+      containers:
+      - name: mlops-api
+        image: gcr.io/proyecto-gke-476107/mlops-api:latest # <--- Reemplaza con la ruta de tu imagen
+        ports:
+        - containerPort: 5000
