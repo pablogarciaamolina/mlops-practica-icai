@@ -16,15 +16,17 @@ class Classifier_Pipeline:
 
         self.model = model
         self.config = config
+        self.name = None
 
     def train(self,
         train_data: DataLoader,
         val_data: DataLoader,
-        add_to_name: str = ""
+        add_to_name: str = "",
+        save_model: bool = True
     ) -> tuple[float]:
         
-        name = f"{self.model.__class__.__name__}_{time.time()}" + add_to_name
-        writer: SummaryWriter = SummaryWriter(os.path.join(METRICS_DIR, name))
+        self.name = f"{self.model.__class__.__name__}_{time.time()}" + add_to_name
+        writer: SummaryWriter = SummaryWriter(os.path.join(METRICS_DIR, self.name))
 
         model: torch.Module = self.model.to(self.config.device)
 
@@ -53,7 +55,8 @@ class Classifier_Pipeline:
 
             scheduler.step()
 
-        save_model(model, name)
+        if save_model:
+            save_model(model, self.name)
 
         return (train_mean_accuracy, val_mean_accuracy,)
     
