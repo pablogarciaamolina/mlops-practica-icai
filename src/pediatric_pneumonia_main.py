@@ -1,6 +1,6 @@
 import torch
 
-from core.data import load_pediatric_pneumonia
+from core.data import load_pediatric_pneumonia, load_pediatric_pneumonia_mixed
 from core.models import AlexNet
 from core.pipelines import Classifier_Pipeline, Pipeline_Config, load_model
 from config import NUM_CLASSES, BATCH_SIZE, PIPELINE_CONFIG
@@ -14,11 +14,14 @@ def main() -> None:
     This function is the main program for the training.
     """
 
+    print("Loading data...", end="")
     train_data, val_data, test_data = load_pediatric_pneumonia(batch_size=BATCH_SIZE)
+    # train_data, val_data, test_data = load_pediatric_pneumonia_mixed(batch_size=BATCH_SIZE, test_size=0.2, val_size=0.1)
+    print("DONE")
 
-    inputs: torch.Tensor = next(iter(train_data))[0]
+    # inputs: torch.Tensor = next(iter(train_data))[0]
     # model = AlexNet(inputs.shape[1], NUM_CLASSES)
-    model = load_model("AlexNet_1764055748.296053")
+    model = load_model("AlexNet_1764097347.8264112_mixed_data")
 
     config = Pipeline_Config(**PIPELINE_CONFIG)
     print("Using device:", config.device)
@@ -27,6 +30,7 @@ def main() -> None:
     # pipeline.train(
     #     train_data,
     #     val_data,
+    #     add_to_name="_mixed_data"
     # )
 
     test_accuracy = pipeline.evaluate(

@@ -20,9 +20,10 @@ class Classifier_Pipeline:
     def train(self,
         train_data: DataLoader,
         val_data: DataLoader,
+        add_to_name: str = ""
     ) -> tuple[float]:
         
-        name = f"{self.model.__class__.__name__}_{time.time()}"
+        name = f"{self.model.__class__.__name__}_{time.time()}" + add_to_name
         writer: SummaryWriter = SummaryWriter(os.path.join(METRICS_DIR, name))
 
         model: torch.Module = self.model.to(self.config.device)

@@ -1,1 +1,1 @@
-from core.data.pediatric_pneumonia import load_pediatric_pneumonia
+from core.data.pediatric_pneumonia import load_pediatric_pneumonia, load_pediatric_pneumonia_mixed

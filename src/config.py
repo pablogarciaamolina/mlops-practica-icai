@@ -7,10 +7,10 @@ import torch
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 num_classes = 2
-batch_size = 64
+batch_size = 128
 
 lr = 1e-3
-epochs = 10
+epochs = 15
 
 # =======================
 # DEVELOPER CONFIGURATION
