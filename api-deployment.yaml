@@ -17,6 +17,7 @@ spec:
       containers:
         - name: mlops-api
           image: gcr.io/proyecto-gke-476107/mlops-api:latest
-          imagePullPolicy: Always
+          # imagePullPolicy: Always
           ports:
-          - containerPort: 5000
+          - name: metrics
+            containerPort: 5000
